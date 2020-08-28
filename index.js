@@ -74,7 +74,7 @@ const attributeTemplate = (attribute, i) =>
   )}</td></tr>`;
 
 const modelTemplate = ({ model, columns }) => `"${
-  model.tableName
+  model.name
 }" [shape=none, margin=0, label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
     <tr><td bgcolor="lightblue">${model.tableName}</td></tr>
     ${
