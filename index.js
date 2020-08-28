@@ -69,14 +69,14 @@ const typeName = columnType => {
 };
 
 const attributeTemplate = (attribute, i) =>
-  `<tr><td port="${i}" align="left">${attribute.fieldName}: ${typeName(
+  `<tr><td port="${i}" align="left">${attribute.fieldName.replace(/\w\S*/g, f => f.charAt(0).toUpperCase() + f.substr(1))}: ${typeName(
     attribute.type
   )}</td></tr>`;
 
 const modelTemplate = ({ model, columns }) => `"${
-  model.name
+  model.tableName
 }" [shape=none, margin=0, label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
-    <tr><td bgcolor="lightblue">${model.name}</td></tr>
+    <tr><td bgcolor="lightblue">${model.tableName}</td></tr>
     ${
       columns
         ? Object.values(model.rawAttributes)
